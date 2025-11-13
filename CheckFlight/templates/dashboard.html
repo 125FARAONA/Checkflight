@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Arajet</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h2>Selecciona tu vuelo</h2>
+    <form method="POST">
+        {% for f in flights %}
+        <div class="flight-option">
+            <input type="radio" name="flight" value="{{ f.id }}" required>
+            <strong>{{ f.type }}</strong>: {{ f.from }} → {{ f.to }}, Asiento: {{ f.seat }}, Precio: {{ f.price }}
+        </div>
+        {% endfor %}
+        <button type="submit">Continuar</button>
+    </form>
+</div>
+</body>
+</html>

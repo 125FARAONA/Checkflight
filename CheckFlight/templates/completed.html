@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Vuelo Completado</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .container {
+            text-align: center;
+            margin-top: 50px;
+            animation: fadeIn 2s;
+        }
+        @keyframes fadeIn {
+            from {opacity:0;}
+            to {opacity:1;}
+        }
+        h2 {
+            color: #ff6600; /* color Arajet */
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>¡Feliz vuelo! Vamo arriba 🚀</h2>
+    <a href="{{ url_for('login') }}">Salir</a>
+</div>
+</body>
+</html>

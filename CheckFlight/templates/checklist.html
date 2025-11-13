@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Checklist de Vuelo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h2>Vuelo: {{ flight.from }} → {{ flight.to }}</h2>
+    <h3>Checklist de preparación</h3>
+    <ul>
+        {% for task in tasks %}
+        <li>
+            {{ task.task }} -
+            {% if task.done %}
+                ✅ Completado
+            {% else %}
+                <a href="{{ url_for('update_task', task_id=loop.index0) }}">Marcar como completado</a>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+</body>
+</html>
+
